@@ -1,0 +1,49 @@
+exp_name: 'check_sop'
+outdir: './experiments/'
+
+num_gpu: 0
+channel_last: True
+precision: bf16
+default_root_dir: "C:/Users/Bhupesh Hada/"
+
+dataset:
+    train_valid_root: 'C:/Users/Bhupesh Hada/Documents/MS in ESDS/CSE573_Computer_vision_and_Image_processing/Academic Project/Academic Project/OneDrive-2023-12-13'
+    train_prefix: 'C:/Users/Bhupesh Hada/Documents/MS in ESDS/CSE573_Computer_vision_and_Image_processing/Academic Project/Academic Project/OneDrive-2023-12-13/train/train/'
+    train_list: 'OneDrive-2023-12-13/train/train/train.csv'
+    val_prefix: 'C:/Users/Bhupesh Hada/Documents/MS in ESDS/CSE573_Computer_vision_and_Image_processing/Academic Project/Academic Project/OneDrive-2023-12-13/test/test/'
+    val_list: 'OneDrive-2023-12-13/test/test/test_kaggletest.csv'
+
+    dev_set:
+        eval_root: "C:/Users/Bhupesh Hada/Documents/MS in ESDS/CSE573_Computer_vision_and_Image_processing/Academic Project/Academic Project/MCS2023_development_test_data/development_test_data"
+        gallery: 'gallery.csv'
+        queries: 'queries.csv'
+
+    seed: 42
+    num_of_classes: 9700
+    input_size: 224
+    batch_size: 48
+    augmentations: 'default'
+    augmentations_valid: 'default'
+    num_workers: 8
+
+model:
+    arch: 'resnet18'
+
+train:
+    embedding_dim: 1024
+    optimizer: 'SGD'
+    momentum: 0.9
+    learning_rate: 0.0003
+    weight_decay: 0.1
+    warmup_steps: 4500
+    n_epoch: 3
+    eps: 0.01
+    m: 0.45
+    m_min: 0.05
+    s: 30
+    freeze_backbone: False
+    freeze_head: False
+    pretrain_model: ""
+    lr_schedule:
+        name: 'cosine'
+    freq_vis : 48
