@@ -19,7 +19,20 @@ The project began with a baseline solution using a ResNet18 CNN architecture to 
 ##### 🔹 Iterative Improvements
 After establishing the baseline, I iteratively refined the model by integrating advanced methods such as ArcFace and XBM (Cross-Batch Memory). Each training iteration leveraged the weights from the previous run, progressively improving feature representations. The iterations varied in terms of image resolution and training dataset size to optimize retrieval accuracy.
 
+#### Commands to run the training scripts for different models
+##### running the resnet18 classifier
+python modeling_code_and_architecture/main.py --cfg config/baseline_mcs.yml
+
+##### running the arcface_1st model
+python -m visual_search.main_arcface --cfg config/arcface_1st.yml --name arcface_1st
+
+##### running the arcface_2st model
+python -m visual_search.main_arcface --cfg config/arcface_2nd.yml --name arcface_2nd
+
+##### running the xbm_1st model
+python -m visual_search.main_arcface --cfg config/xbm_1st.yml --name xbm_1st
+
 #### 📊 Key Highlights
--Developed a scalable, deep learning–based product image retrieval system.
--Integrated advanced architectures (ArcFace, XBM) for enhanced feature learning.
--Achieved improved mAP through sequential fine-tuning and data scaling.
+- Developed a scalable, deep learning–based product image retrieval system.
+- Integrated advanced architectures (ArcFace, XBM) for enhanced feature learning.
+- Achieved improved mAP through sequential fine-tuning and data scaling.
